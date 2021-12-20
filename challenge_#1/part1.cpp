@@ -22,19 +22,14 @@ int main(){
 
     num = 0;         
     i = 0;
-    while(i < (sizeof(inputArray) / sizeof(inputArray[0]))- 2){
-        for(int j = 0; j < 3; j++){
-            num += inputArray[i + j];
-        }
+    while(i < (sizeof(inputArray) / sizeof(inputArray[0]))){
+        num = inputArray[i];
         if(trash == 0)
             trash++;
         else if(num > tempNum)
             counter++;
         tempNum = num;
-        num = 0;
         i++;
     }
     std::cout << "\n" << counter << std::endl;
-
-
 }
