@@ -11,8 +11,8 @@ int main(){
         exit(1);            
     }
       
-    while(inFile >> sMovement >> sMove){                      //*
-        nMove = std::stoi(sMove);                  //*     while loop to asign input file to array
+    while(inFile >> sMovement >> sMove){                      
+        nMove = std::stoi(sMove);                
         if(sMovement == "forward")
             horizontal += nMove;
         else if(sMovement == "down")
