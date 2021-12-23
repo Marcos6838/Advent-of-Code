@@ -50,35 +50,12 @@ int main()
         i++;
     }
 
-    zerosCounter = 0;
-    onesCounter = 0;
-    
-    i = 0;
-    while(i < 12 + 1){
-        int j = 0;
-        if(zerosCounter < onesCounter){
-            i--;
-            epsilonRate[i] = 0;
-            i++;
-        }
-        else if(onesCounter < zerosCounter){
-            i--;
+    for(int i = 0; i < 12; i++){
+        if(gammaRate[i] == 0)
             epsilonRate[i] = 1;
-            i++;
-        }
-        zerosCounter = 0;
-        onesCounter = 0;
-        
-        while(j < 1000){
-            if(arrayOfBinary[j][i] == 1)
-                onesCounter++;
-            else if(arrayOfBinary[j][i] == 0)
-                zerosCounter++;
-            j++;
-        }
-        i++;
+        else if(gammaRate[i] == 1)
+            epsilonRate[i] = 0;
     }
-
     
     i = 0;
     while(i < 12){
