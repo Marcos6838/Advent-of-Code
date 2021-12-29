@@ -16,7 +16,7 @@ int main()
     
     int i = 0;
     while(inFile >> line){                      
-        for(int j = 0; j < 12; j++){
+        for(int j = 0; j < 12; j++){ 
             sToInt = line.at(j);
             digit = std::stoi(sToInt);
             arrayOfBinary[i][j] = digit;
@@ -25,21 +25,9 @@ int main()
     } 
 
     i = 0;
+    int k = 0;
     while(i < 12 + 1){
         int j = 0;
-        if(zerosCounter > onesCounter){
-            i--;
-            gammaRate[i] = 0;
-            i++;
-        }
-        else if(onesCounter > zerosCounter){
-            i--;
-            gammaRate[i] = 1;
-            i++;
-        }
-        zerosCounter = 0;
-        onesCounter = 0;
-
         while(j < 1000){
             if(arrayOfBinary[j][i] == 1)
                 onesCounter++;
@@ -47,6 +35,14 @@ int main()
                 zerosCounter++;
             j++;
         }
+        if(zerosCounter > onesCounter){
+            gammaRate[i] = 0;
+        }
+        else if(onesCounter > zerosCounter){
+            gammaRate[i] = 1;
+        }
+        zerosCounter = 0;
+        onesCounter = 0;
         i++;
     }
 
