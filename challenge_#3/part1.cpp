@@ -25,8 +25,9 @@ int main()
     } 
 
     i = 0;
+    std::string gam; 
     int k = 0;
-    while(i < 12 + 1){
+    while(i < 12){
         int j = 0;
         while(j < 1000){
             if(arrayOfBinary[j][i] == 1)
@@ -37,29 +38,39 @@ int main()
         }
         if(zerosCounter > onesCounter){
             gammaRate[i] = 0;
+            gam += "0";
+            epsilonRate[i] = 1;
         }
         else if(onesCounter > zerosCounter){
             gammaRate[i] = 1;
+            gam += "1";
+            epsilonRate[i] = 0;
         }
         zerosCounter = 0;
         onesCounter = 0;
         i++;
     }
 
+    int gamInt;
+    
     for(int i = 0; i < 12; i++){
-        if(gammaRate[i] == 0)
-            epsilonRate[i] = 1;
-        else if(gammaRate[i] == 1)
-            epsilonRate[i] = 0;
+        gamInt = gam.at(i) ;
     }
+
+    
+    std::cout <<"this is gamma: " << gam << std::endl;
+    // for(int i = 0; i < 12; i++){
+    //     if(gammaRate[i] == 0)
+    //         epsilonRate[i] = 1;             
+    //     else if(gammaRate[i] == 1)
+    //         epsilonRate[i] = 0;
+    // }
     
     i = 0;
     while(i < 12){
         gamToDec =  gamToDec * 2 + gammaRate[i];
         i++;
     }
-
-    std::cout << std::endl;
 
     i = 0;
     while(i < 12){
